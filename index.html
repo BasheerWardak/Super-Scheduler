@@ -9,12 +9,16 @@
   <link rel="stylesheet" href="css/main.css" />
 
   <!-- ✅ PWA: Manifest + Theme Color -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#764ba2">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3367D6">
 
-  <!-- ✅ PWA: Icons (replace with your actual icon paths) -->
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <!-- ✅ Icons for PWA + iOS -->
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="icon" href="/icons/icon-192.png" type="image/png">
+
+  <!-- iOS Splash Screen (optional, safe to keep blank or add later) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
   <style>
     body {
@@ -27,25 +31,9 @@
       justify-content: center;
       align-items: center;
     }
-
-    .loading-container {
-      text-align: center;
-      color: white;
-    }
-
-    .logo {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .loading-text {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
+    .loading-container { text-align: center; color: white; }
+    .logo { font-size: 3rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .loading-text { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
     .spinner {
       width: 50px;
       height: 50px;
@@ -55,11 +43,7 @@
       animation: spin 1s linear infinite;
       margin: 0 auto;
     }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 
   <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fsupersche6116back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
@@ -72,18 +56,18 @@
   </div>
 
   <script>
-    // Redirect to calendar dashboard after a brief loading animation
-    setTimeout(function() {
-      window.location.href = 'pages/calendar_dashboard.html';
+    // Redirect to calendar dashboard after animation
+    setTimeout(() => {
+      window.location.href = '/pages/calendar_dashboard.html';
     }, 2000);
 
-    // ✅ PWA: Register service worker
+    // ✅ Register Service Worker with correct scope
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function() {
+      window.addEventListener("load", () => {
         navigator.serviceWorker
-          .register("sw.js")
+          .register("/sw.js") // <-- IMPORTANT: root path ensures full scope
           .then(() => console.log("✅ Service Worker registered"))
-          .catch(err => console.log("❌ Service Worker failed", err));
+          .catch(err => console.warn("❌ Service Worker failed:", err));
       });
     }
   </script>
