@@ -762,10 +762,9 @@
 
         // --------- Initialization ---------
         document.addEventListener('DOMContentLoaded', function () {
-            // set dates to today by default
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('startDate').value = today;
-            document.getElementById('endDate').value = today;
+            // set dates to by default
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
 
             // initial run
             applyFilters();
