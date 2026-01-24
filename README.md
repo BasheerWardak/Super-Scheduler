@@ -1,87 +1,34 @@
-# HTML
+# Super Scheduler (Offline Desktop Scheduling App)
 
-A modern HTML project utilizing Tailwind CSS for building responsive web applications with minimal setup.
+🚧 Status: In Development / Prototype  
+A privacy-focused **offline scheduling application** built with **HTML5, CSS3, and JavaScript**. Designed to work locally (no account required) and save events using **local JSON persistence** via the **File System Access API**.
 
-## 🚀 Features
+## ✅ Key Features
+- **Offline-first**: runs locally without a backend
+- **Conflict Detection**: flags overlapping events to prevent double-booking
+- **Recurring Events**: supports repeat scheduling patterns
+- **Local Data Storage**: saves/loads events as **JSON** using the File System Access API
+- **Maintainable Architecture**: organized using a **3-layer design**
+  - Presentation (UI)
+  - Business Logic (validation + scheduling rules)
+  - Data Layer (read/write JSON)
 
-- **HTML5** - Modern HTML structure with best practices
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
-- **Custom Components** - Pre-built component classes for buttons and containers
-- **NPM Scripts** - Easy-to-use commands for development and building
-- **Responsive Design** - Mobile-first approach for all screen sizes
+## 🧰 Tech Stack
+- **HTML5 / CSS3 / JavaScript**
+- **File System Access API** (JSON import/export and local persistence)
 
-## 📋 Prerequisites
+## 🚀 Getting Started
+### Option 1 — Run Locally (Quickest)
+1. Download or clone the repo
+2. Open `index.html` in your browser
 
-- Node.js (v12.x or higher)
-- npm or yarn
+> Note: Some browsers restrict local file access for saving/loading files. If saving/loading doesn’t work, use Option 2.
 
-## 🛠️ Installation
+### Option 2 — Run with a Local Server (Recommended)
+Using VS Code:
+1. Install the **Live Server** extension
+2. Right-click `index.html` → **Open with Live Server**
 
-1. Install dependencies:
+Or using Python:
 ```bash
-npm install
-# or
-yarn install
-```
-
-2. Start the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-## 📁 Project Structure
-
-```
-html_app/
-├── css/
-│   ├── tailwind.css   # Tailwind source file with custom utilities
-│   └── main.css       # Compiled CSS (generated)
-├── pages/             # HTML pages
-├── index.html         # Main entry point
-├── package.json       # Project dependencies and scripts
-└── tailwind.config.js # Tailwind CSS configuration
-```
-
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. Custom utility classes include:
-
-
-## 🧩 Customization
-
-To customize the Tailwind configuration, edit the `tailwind.config.js` file:
-
-
-## 📦 Build for Production
-
-Build the CSS for production:
-
-```bash
-npm run build:css
-# or
-yarn build:css
-```
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints:
-
-- `sm`: 640px and up
-- `md`: 768px and up
-- `lg`: 1024px and up
-- `xl`: 1280px and up
-- `2xl`: 1536px and up
-
-## 🙏 Acknowledgments
-
-- Built with [Rocket.new](https://rocket.new)
-- Powered by HTML and Tailwind CSS
-
-Built with ❤️ on Rocket.new
-"# QP-app" 
-"# QP-app" 
-"# QP-app" 
-"# QP-app" 
-"# QP-app" 
+python -m http.server 8000
